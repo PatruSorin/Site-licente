@@ -1,3 +1,3 @@
 # Site-licente
 
-Proiect MDS realizat de Flavia Neacsu, Robert Manea, Radu Cristian si Patru Sorin.
+Proiect MDS realizat de Flavia Neacsu, Robert Manea, Radu Cristian Valentin si Patru Sorin.
