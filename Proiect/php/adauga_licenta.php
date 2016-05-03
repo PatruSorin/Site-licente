@@ -1,13 +1,16 @@
-<html>
 <?php
 
 //TO DO: Metoda care determina ce tip de utilizator a dat submit la form
 class info{
 
-function tip_cont(){return "1";}
+function tip_cont(){return "2";}
+function nume(){return "4psa";}
 
 }
 //Validare informatii primite prin post de la formular (adaugalicenta.html)
+
+$a= new info;
+
 if(isset($_POST['submit'])){
 
     $data_missing = array();
@@ -16,6 +19,7 @@ if(isset($_POST['submit'])){
 
 
         $data_missing[] = 'Titlu';
+
     }else{
 
 
@@ -34,72 +38,74 @@ if(isset($_POST['submit'])){
         $descriere = $_POST['descriere'];
 
     }
-      //TO DO: Verificari mai amanuntite pentru documentatie
-    if(empty($_POST['documentatie'])){
 
+    //------------------------Posibile modificari aici--------------------------
+    $tip_usr=$a->tip_cont();
+    $nume_usr=$a->nume();
+    //-------------------------------------------------------------------------
 
-        $data_missing[] = 'Documentatie';
+  
+    //Stocare date din formular in baza de date
+        if(empty($data_missing)){
 
-    }else{
+            require_once('../mysqli_connect.php');
 
+            if(strcmp ( $tip_usr , "1" )==0)//Profesor
+            $query = "INSERT INTO licente (titlu, descriere, profesor) VALUES (?, ?, ?)";
+            else if(strcmp ( $tip_usr , "2" )==0)//Firma
+            $query = "INSERT INTO licente (titlu, descriere, firma) VALUES (?, ?, ?)";
+            else if(strcmp ( $tip_usr , "3" )==0)//Student
+            {echo "Nu aveti permisiune"; die();}
 
-        $documentatie = $_POST['documentatie'];
+            $stmt = mysqli_prepare($dbc, $query);
 
-    }
-//Stocare date din formular in baza de date
-    if(empty($data_missing)){
+            mysqli_stmt_bind_param($stmt, "sss", $titlu, $descriere,$nume_usr);
 
-        require_once('../mysqli_connect.php');
+            mysqli_stmt_execute($stmt);
 
-        $query = "INSERT INTO licente (titlu, descriere) VALUES (?, ?)";
+            $affected_rows = mysqli_stmt_affected_rows($stmt);
 
-        $stmt = mysqli_prepare($dbc, $query);
+            if($affected_rows == 1){
 
-        mysqli_stmt_bind_param($stmt, "ss", $titlu, $descriere);
+                echo 'Date introduse cu succes';
 
-        mysqli_stmt_execute($stmt);
+                mysqli_stmt_close($stmt);
 
-        $affected_rows = mysqli_stmt_affected_rows($stmt);
+                mysqli_close($dbc);
+                sleep(5);
+            } else {
 
-        if($affected_rows == 1){
+                echo 'A intervenit o eroare<br />';
+                echo mysqli_error();
 
-            echo 'Date introduse cu succes';
+                mysqli_stmt_close($stmt);
 
-            mysqli_stmt_close($stmt);
-
-            mysqli_close($dbc);
+                mysqli_close($dbc);
+                sleep(5);
+            }
 
         } else {
 
-            echo 'A intervenit o eroare<br />';
-            echo mysqli_error();
+            echo 'Nu ati introdus urmatoarele date:<br />';
 
-            mysqli_stmt_close($stmt);
+            foreach($data_missing as $missing){
 
-            mysqli_close($dbc);
+                echo "$missing<br />";
 
-        }
 
-    } else {
-
-        echo 'Nu ati introdus urmatoarele date<br />';
-
-        foreach($data_missing as $missing){
-
-            echo "$missing<br />";
-
+            }
+            sleep(5);
+            header("Location: ../aduagalicenta.html");
+            die();
 
         }
 
-    }
 
 }
 
 
-//TO DO: Salvare fisier uploadat in folderul /documentatie_licente
+
 
 //Redirect la home
 header("Location: ../index.html");
 die();
-?>
-</html>

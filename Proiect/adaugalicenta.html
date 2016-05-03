@@ -42,7 +42,7 @@
 			<div id="content">
 
 					<!-- Formular pentru postarea unei licentre noi -->
-				<form action="php/adauga_licenta.php" method="post">
+				<form action="php\adauga_licenta.php" method="post" enctype="multipart/form-data" >
 					TITLU
 					<br/>
 					<input type="text" name="titlu"><br>
@@ -50,10 +50,10 @@
 					<br/>
 					<input type="text" name="descriere"><br>
 					INCARCA FISIER
-					<input type="file" name="documentatie">
+					<input type="file" name="documentatie" id="documentatie">
 					<!-- <input type="submit" value="Select.."> -->
 					<br/>
-					Adauga licenta! <input type="submit" value="Adauga">
+					Adauga licenta! <input type="submit" value="Adauga" name="submit">
 				</form>
 
 			</div>
