@@ -1,13 +1,13 @@
 BODY {
-	font-family:Arial, Helvetica, sans-serif; 
-	font-size:12px; 
-	color:#666; 
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#666;
 	text-align:center;
-	margin:0; 
+	margin:0;
 	padding:0;
 }
 
-A{color:#a0a0a0; } 
+A{color:#a0a0a0; }
 A:hover{color:#666; }
 
 H1, H2, H3, H4, H5, H6{font-family:Arial, Helvetica, sans-serif}
@@ -18,8 +18,8 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 #header_all {
 	float: left;
 	width: 100%;
-	height: 215px; 
-	background-image: url('Photos/header.jpg');
+	height: 215px;
+	background-image: url('img/header.jpg');
 }
 
 #header {
@@ -36,22 +36,22 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 }
 
 #quickLinks {
-	float: right; 
-	margin: 10px 0px 0px 0px; 
-	text-align: right; 
-} 
+	float: right;
+	margin: 10px 0px 0px 0px;
+	text-align: right;
+}
 
 #header_links {
-     float: right; 
+     float: right;
      margin: 5px 20px 0 0;
-     font-size: 14px; 
+     font-size: 14px;
      color:#a0a0a0;
      font-family: "Myriad Pro", Arial;
 }
 
 #header_links a {
      margin: 0 10px 0 10px;
-     font-size: 14px; 
+     font-size: 14px;
      color: #a0a0a0;
      font-family: "Myriad Pro", Arial;
      text-decoration: none;
@@ -64,36 +64,36 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 	width: 964px;
 	height: 26px;
 	margin: 17px 0px 0px 0px;
-	
+
 }
 
-#mainMenu a, #mainMenu a:link, #mainMenu a:active, #mainMenu a:visited { 
+#mainMenu a, #mainMenu a:link, #mainMenu a:active, #mainMenu a:visited {
 	float: left;
 	margin: 0px 30px 0px 0px;
 	padding: 4px 0px 4px 0px;
-	font-family: "Myriad Pro", Arial, Helvetica, sans-serif; 
-	color: #a0a0a0; 
-	font-size: 15px; 
+	font-family: "Myriad Pro", Arial, Helvetica, sans-serif;
+	color: #a0a0a0;
+	font-size: 15px;
 	text-decoration:none;
 	text-transform: Capitalize;
 	font-weight: bold;
-} 
+}
 
 #mainMenu a:hover {
 	color:#555;
-} 
+}
 #mainMenu a.activ {
-	color:#555; 
-}  
+	color:#555;
+}
 #mainMenu a.activ:hover {
-	color:#555; 
+	color:#555;
 }
 
-#mainMenu ul { 
+#mainMenu ul {
 	float:left;
 	margin: 0px;
 }
-#mainMenu li { 
+#mainMenu li {
 	float:left;
 	list-style-type: none;
 	padding:0; margin:0;
@@ -101,25 +101,25 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 
 #wrapper_all {
 	float: left;
-	width: 100%; 
-	margin: 0 auto; 
-	text-align: left;  
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
 	margin-top: 20px;
 }
 
 #wrapper {
 	/* width: 964px;  */
-	margin: 0 auto; 
-	text-align: left; 
-	margin-top: 20px; 
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 20px;
 	position:relative;
 }
 
-#content { 
+#content {
 	float: left;
 	width:80%;
 	/* height:1000px; */
-	vertical-align:top; 
+	vertical-align:top;
 	margin: 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
 	overflow: hidden;
@@ -127,7 +127,7 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 	border-color:black;
 	padding:1%;
 	margin-left:1%;
-}  
+}
 
 #right_side {
     float: right;
@@ -137,15 +137,15 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
     padding: 0px;
     margin: 0px 0px 0px 0px;
 	position:absolute;*/
-} 
+}
 
 #parteneriHome{
-	margin-top: 10px; 
-	padding-bottom:10px; 
+	margin-top: 10px;
+	padding-bottom:10px;
 	width:20%;
 	height:500px;
-	margin-bottom:10px; 
-	clear: both; 
+	margin-bottom:10px;
+	clear: both;
 	border:solid 1px;
 	border-color:black; }
 
@@ -154,22 +154,22 @@ H2{font-size:16px; color:#67686a; margin-bottom:3px}
 #parteneriHome H2{color:#a0a0a0; font-size:13px; margin-bottom:10px; font-weight: normal;}
 
 #content h1 {
-	
+
 	width: 100%;
 	margin: 20px 0px 20px 0px;
-	font-family: "Myriad Pro", Arial; 
-	color: #272630; 
-	font-size: 27px; 
+	font-family: "Myriad Pro", Arial;
+	color: #272630;
+	font-size: 27px;
 	text-transform: uppercase;
 	line-height: 1em;
 }
 #right_side h1 {
-	
-	width: 100%; 
+
+	width: 100%;
 	margin: 0px 0px 10px 0px;
-	font-family: "Myriad Pro", Arial; 
-	color: #272630; 
-	font-size: 16px; 
+	font-family: "Myriad Pro", Arial;
+	color: #272630;
+	font-size: 16px;
 	text-transform: uppercase;
 	line-height: 1em;
 }
