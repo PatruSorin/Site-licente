@@ -44,7 +44,43 @@ if(isset($_POST['submit'])){
     $nume_usr=$a->nume();
     //-------------------------------------------------------------------------
 
-  
+    // Salvare fisier uploadat in folderul /documentatie_licente
+    $target_dir = "../uploads/";
+    $target_file = $target_dir . basename($_FILES["documentatie"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    // Verificare daca fisierul este de tip .pdf
+
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $check = finfo_file($_FILES["documentatie"]["tmp_name"]);
+        if(strcmp($check, "application/pdf")==0) {
+            echo "Fisierul este un PDF - " . $check["mime"] . ".";
+            $uploadOk = 1;
+            sleep(5);
+        } else {
+            echo "Fisierul nu este de tip PDF.";
+            $uploadOk = 0;
+            sleep(5);die();
+        }
+
+        // Verificare daca fisierul exista
+        if (file_exists($target_file)) {
+            echo "Ne cerem scuze mai exista un fisier cu acest nume.";
+            $uploadOk = 0;
+        }
+
+        // Verificam daca s-au produs erori
+        if ($uploadOk == 0) {
+            echo "Fisierul nu a putut fi uploadat.";  sleep(5);die();
+        // Daca totul este OK incercam sa facem upload
+        } else {
+            if (move_uploaded_file($_FILES["documentatie"]["tmp_name"], $target_file)) {
+                echo "Fisierul: ". basename( $_FILES["documentatie"]["name"]). " a fost uploadat."; sleep(5);
+            } else {
+                echo "A aparut o eroare la uploadul fisierului."; sleep(5);die();
+            }}
+
+
     //Stocare date din formular in baza de date
         if(empty($data_missing)){
 
