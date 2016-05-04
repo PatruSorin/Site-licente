@@ -39,22 +39,16 @@
 
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
-			<div id="content">
 
-					<!-- Formular pentru postarea unei licentre noi -->
-				<form action="php\adauga_licenta.php" method="post" enctype="multipart/form-data" >
-					TITLU
-					<br/>
-					<input type="text" name="titlu"><br>
-					DESCRIERE
-					<br/>
-					<input type="text" name="descriere"><br>
-					INCARCA FISIER
-					<input type="file" name="documentatie" id="documentatie">
-					<!-- <input type="submit" value="Select.."> -->
-					<br/>
-					Adauga licenta! <input type="submit" value="Adauga" name="submit">
-				</form>
+			<!-- Continut pagina -->
+			<div id="content">
+				<!-- TO DO: Adauga casuta pentru search si conecteaz-o la php\lista_licente -->
+				<?php
+				// Accesare fisier php care genereaza lista cu licente.
+				require 'php\lista_licente.php';
+
+				?>
+
 
 			</div>
 
@@ -85,4 +79,4 @@
 	</div>
 </body>
 
-</html>3
+</html>

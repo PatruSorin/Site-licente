@@ -30,7 +30,7 @@
 			<ul id="mainMenu">
 				<li><a href="index.html"  title="index">Home</a></li>
 				<li><a href="despre.html"  title="despre">despre</a></li>
-				<li><a href="listalicente.html"  title="licente">Lista licente</a></li>
+				<li><a href="listalicente.php"  title="licente">Lista licente</a></li>
 				<li><a href="contact.html"  title="contact">contact</a></li>
 				<li><a href="chat.html" title="chat">Chat</a></li>
 			</ul>
@@ -39,7 +39,19 @@
 
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
-			<div id="content">LISTA LICENTE</div>
+
+			<!-- Continut pagina -->
+
+			<div id="content">
+
+				<?php
+
+				require 'php\lista_licente.php';
+
+				?>
+
+
+			</div>
 
 			<div id="right-side" class="col-sm-2">
 				<div id="parteneriHome" class="col-sm-2" >
