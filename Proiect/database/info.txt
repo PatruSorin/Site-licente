@@ -1,0 +1,12 @@
+	Structura licente
+id titlu descriere cale_fisier profesor firma student
+
+	Structura utilizatori
+nume prenume e-mail data oras facultate specializare materie cui grupa username parola tip_cont
+
+//tip_cont -> 1 pt profesor
+//		   -> 2 pt firma
+//		   -> 3 pt student
+//unele campuri pot fi null, ex cui, care e prezent doar la firma.
+
+//pt import: new database in phpmyadmin cu numele site_licente apoi importati fisierul
