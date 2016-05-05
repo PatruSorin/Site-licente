@@ -1,30 +1,85 @@
 <?php
+if(isset($_POST['submit'])) {
 
-require_once('mysqli_connect.php');
-// username and password sent from form
-$myusername=$_POST['username'];
-$mypassword=$_POST['password'];
-// To protect MySQL injection (more detail about MySQL injection)
-$myusername = stripslashes($myusername);
-$mypassword = stripslashes($mypassword);
-$myusername = mysql_real_escape_string($myusername);
-$mypassword = mysql_real_escape_string($mypassword);
+    //Verificare existenta informatii
 
-//placeholder pana la finalizarea DB
-$sql="SELECT * FROM utilizatori WHERE username='$myusername' and password='$mypassword'";
-$result=mysql_query($sql);
-// Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
-// If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1) {
-    session_start();
-    $_SESSION['login'] = "1";
-    header ("Location: http://www.google.com");
+    $data_missing = array();
+
+    if (empty($_POST['username'])) {
+
+
+        $data_missing[] = 'Username';
+
+    } else {
+
+
+        $username = $_POST['username'];
+
+    }
+
+    if (empty($_POST['password'])) {
+
+
+        $data_missing[] = 'Parola';
+
+    } else {
+
+
+        $password = $_POST['password'];
+
+    }
+
+    if (empty($data_missing)) {
+
+        require_once('../mysqli_connect.php');
+
+        //protectic sql injection
+        $username = stripslashes($username);
+        $password = stripslashes($password);
+        $username = mysqli_real_escape_string($dbc, $username);
+        $password = mysqli_real_escape_string($dbc, $password);
+
+        //cautare username si parola in bd
+        $query = "SELECT * FROM utilizatori WHERE username='$username' and parola='$password'";
+        $response = @mysqli_query($dbc, $query);
+        if ($response) {
+            //daca a fost realizat query-ul verificam ca nr de linii returnat sa fie 1 => un utilizator gasit
+            $rowcount = mysqli_num_rows($response);
+            $row = mysqli_fetch_array($response);
+            if ($rowcount == 1) {
+                //setare variabile de sesiune
+                session_start();
+                $_SESSION['tip_cont'] = $row['tip_cont'];
+                if (strcmp($row['tip_cont'], '2') == 0)
+                    $_SESSION['nume'] = $row['nume'];
+                else {
+                    $_SESSION['nume'] = $row['nume'] . ' ' . $row['prenume'];
+                }
+            }
+            else
+            {
+                echo 'Combinatia username/parola nu a fost gasita<br />';
+            }
+        }
+        else
+        {
+            echo 'A intervenit o eroare<br />';
+        }
+
+    } else {
+
+        echo 'Nu ati introdus urmatoarele date:<br />';
+
+        foreach ($data_missing as $missing) {
+
+            echo "$missing<br />";
+            sleep(5);
+            header("Location: ../login.html");
+            die();
+
+        }
+    }
 }
-else {
-    session_start();
-    $_SESSION['login'] = '';
-    header ("Location: http://www.yahoo.com");
-}
-?>
 
+header("Location: ../index.html");
+die();
