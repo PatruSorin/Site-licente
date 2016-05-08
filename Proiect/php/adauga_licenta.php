@@ -48,6 +48,7 @@ if(isset($_POST['submit'])){
     if(isset($_FILES['documentatie'])){
 
       $UploadName = $_FILES['documentatie']['name'];
+      $UploadName = rand(1,100000).$UploadName;
       $UploadTemp = $_FILES['documentatie']['tmp_name'];
       $UploadType = $_FILES['documentatie']['type'];
 
@@ -55,8 +56,11 @@ if(isset($_POST['submit'])){
 
       if(!$UploadTemp){
         die("Nu a fost incarcat nici un fisier.");
-      }else{
+      }else if($UploadType=="application/pdf"){
         move_uploaded_file($UploadTemp, "../upload/$UploadName");
+        $cale_fisier="upload/$UploadName";
+      }else{
+        die("Fisierul trebuie sa fie de tip .pdf");
       }
     }
 
@@ -66,15 +70,15 @@ if(isset($_POST['submit'])){
             require_once('../mysqli_connect.php');
 
             if(strcmp ( $tip_usr , "1" )==0)//Profesor
-            $query = "INSERT INTO licente (titlu, descriere, profesor) VALUES (?, ?, ?)";
+            $query = "INSERT INTO licente (titlu, descriere, profesor, cale_fisier) VALUES (?, ?, ?, ?)";
             else if(strcmp ( $tip_usr , "2" )==0)//Firma
-            $query = "INSERT INTO licente (titlu, descriere, firma) VALUES (?, ?, ?)";
+            $query = "INSERT INTO licente (titlu, descriere, firma, cale_fisier) VALUES (?, ?, ?, ?)";
             else if(strcmp ( $tip_usr , "3" )==0)//Student
-            {echo "Nu aveti permisiune"; die();}
+            {echo "Nu aveti permisiunile necesare."; die();}
 
             $stmt = mysqli_prepare($dbc, $query);
 
-            mysqli_stmt_bind_param($stmt, "sss", $titlu, $descriere,$nume_usr);
+            mysqli_stmt_bind_param($stmt, "ssss", $titlu, $descriere,$nume_usr,$cale_fisier);
 
             mysqli_stmt_execute($stmt);
 
@@ -122,5 +126,5 @@ if(isset($_POST['submit'])){
 
 
 //Redirect la home
-//header("Location: ../index.html");
-//die();
+header("Location: ../index.html");
+die();
