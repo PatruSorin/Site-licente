@@ -44,42 +44,21 @@ if(isset($_POST['submit'])){
     $nume_usr=$a->nume();
     //-------------------------------------------------------------------------
 
-    // Salvare fisier uploadat in folderul /documentatie_licente
-    $target_dir = "../uploads/";
-    $target_file = $target_dir . basename($_FILES["documentatie"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-    // Verificare daca fisierul este de tip .pdf
+    //Upload fisier
+    if(isset($_FILES['documentatie'])){
 
-    $finfo = finfo_open(FILEINFO_MIME_TYPE);
-    $check = finfo_file($_FILES["documentatie"]["tmp_name"]);
-        if(strcmp($check, "application/pdf")==0) {
-            echo "Fisierul este un PDF - " . $check["mime"] . ".";
-            $uploadOk = 1;
-            sleep(5);
-        } else {
-            echo "Fisierul nu este de tip PDF.";
-            $uploadOk = 0;
-            sleep(5);die();
-        }
+      $UploadName = $_FILES['documentatie']['name'];
+      $UploadTemp = $_FILES['documentatie']['tmp_name'];
+      $UploadType = $_FILES['documentatie']['type'];
 
-        // Verificare daca fisierul exista
-        if (file_exists($target_file)) {
-            echo "Ne cerem scuze mai exista un fisier cu acest nume.";
-            $uploadOk = 0;
-        }
+      $UploadName = preg_replace("#[^a-z0-9.]#i","",$UploadName);
 
-        // Verificam daca s-au produs erori
-        if ($uploadOk == 0) {
-            echo "Fisierul nu a putut fi uploadat.";  sleep(5);die();
-        // Daca totul este OK incercam sa facem upload
-        } else {
-            if (move_uploaded_file($_FILES["documentatie"]["tmp_name"], $target_file)) {
-                echo "Fisierul: ". basename( $_FILES["documentatie"]["name"]). " a fost uploadat."; sleep(5);
-            } else {
-                echo "A aparut o eroare la uploadul fisierului."; sleep(5);die();
-            }}
-
+      if(!$UploadTemp){
+        die("Nu a fost incarcat nici un fisier.");
+      }else{
+        move_uploaded_file($UploadTemp, "../upload/$UploadName");
+      }
+    }
 
     //Stocare date din formular in baza de date
         if(empty($data_missing)){
@@ -108,7 +87,7 @@ if(isset($_POST['submit'])){
                 mysqli_stmt_close($stmt);
 
                 mysqli_close($dbc);
-                sleep(5);
+
             } else {
 
                 echo 'A intervenit o eroare<br />';
@@ -117,7 +96,7 @@ if(isset($_POST['submit'])){
                 mysqli_stmt_close($stmt);
 
                 mysqli_close($dbc);
-                sleep(5);
+
             }
 
         } else {
@@ -130,7 +109,7 @@ if(isset($_POST['submit'])){
 
 
             }
-            sleep(5);
+
             header("Location: ../aduagalicenta.html");
             die();
 
@@ -143,5 +122,5 @@ if(isset($_POST['submit'])){
 
 
 //Redirect la home
-header("Location: ../index.html");
-die();
+//header("Location: ../index.html");
+//die();
