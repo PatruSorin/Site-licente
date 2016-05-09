@@ -15,7 +15,7 @@ $a= new info;
 
 //Conectare la baza de date si realizare queriy
 require_once('mysqli_connect.php');//pozitia fisierului este luata relativ la listalicente.html (.php in cazul nostru)
-$query = "SELECT 	titlu, descriere, cale_fisier, profesor, firma, student FROM licente";
+$query = "SELECT id,	titlu, descriere, cale_fisier, profesor, firma, student FROM licente";
 $response = @mysqli_query($dbc, $query);
 
 //Daca sa executat query-ul corect
@@ -26,18 +26,17 @@ if($response){
                 cellspacing="5" cellpadding="8">
 
                 <tr><td align="left"><b>Titlu</b></td>
-                <td align="left"><b>Descriere</b></td>
-                <td align="left"><b>Documentatie</b></td>
                 <td align="left"><b>Firma</b></td>
+                <td align="left"><b>Documentatie</b></td>
                 </tr>';
 
                 while($row = mysqli_fetch_array($response)){
                   if(strcmp ( $row['profesor'] , "" )==0){
                       echo '<tr><td align="left">' .
                       $row['titlu'] . '</td><td align="left">' .
-                      $row['descriere'] . '</td><td align="left">' .
-                      $row['cale_fisier'] . '</td><td align="left">' .
                       $row['firma'] . '</td><td align="left">' .
+                      '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
+                      '</td><td align="left">' .
                       '<td align="left">';
                       echo '</tr>';
                   }
@@ -54,20 +53,19 @@ if($response){
         cellspacing="5" cellpadding="8">
 
         <tr><td align="left"><b>Titlu</b></td>
-        <td align="left"><b>Descriere</b></td>
-        <td align="left"><b>Documentatie</b></td>
         <td align="left"><b>Profesor</b></td>
         <td align="left"><b>Firma</b></td>
+        <td align="left"><b>Documentatie</b></td>
         </tr>';
 
         while($row = mysqli_fetch_array($response)){
           if(strcmp ( $row['profesor'] , "" )!=0 && strcmp ( $row['student'] , "" )==0){
               echo '<tr><td align="left">' .
               $row['titlu'] . '</td><td align="left">' .
-              $row['descriere'] . '</td><td align="left">' .
-              $row['cale_fisier'] . '</td><td align="left">' .
               $row['profesor'] . '</td><td align="left">' .
               $row['firma'] . '</td><td align="left">' .
+              '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
+              '</td><td align="left">' .
               '<td align="left">';
               echo '</tr>';
           }
