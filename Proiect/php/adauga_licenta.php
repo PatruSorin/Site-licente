@@ -3,8 +3,8 @@
 //TO DO: Metoda care determina ce tip de utilizator a dat submit la form
 class info{
 
-function tip_cont(){return "2";}
-function nume(){return "4psa";}
+function tip_cont(){return "1";}
+function nume(){return "Stupariu Sorin";}
 
 }
 //Validare informatii primite prin post de la formular (adaugalicenta.html)

@@ -1,5 +1,15 @@
 <?php
+//TO DO: Metoda care determina ce tip de utilizator a dat submit la form
+class info{
 
+function tip_cont(){return "1";}
+function nume(){return "Nume profesor";}
+
+}
+$a= new info;
+
+ $nume_usr=$a->nume();
+ $tip_usr=$a->tip_cont();
 
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
 $id=$_SERVER['QUERY_STRING'];
@@ -59,13 +69,17 @@ echo '<!DOCTYPE html>
     //-------------------------------------CONTINUT PAGINA-------------------------------------------------------------
     	echo '<div id="content">';
 
-      echo $row['titlu']."<br>";
-      echo $row['descriere']."<br>";
-      echo $row['profesor']."<br>";
-      echo $row['firma']."<br>";
-     //TO DO: Buton de download
+      echo "<div><p id='p_titlu'>".$row['titlu']."</p><br>";
+      echo "<p id='p_descriere'>".$row['descriere']."</p><br>";
+      echo "<p id='p_profesor'>".$row['profesor']."</p><br>";
+      echo "<p id='p_firma'>".$row['firma']."</p><br>";
 
-     //TO DO Buton pentru profesori pentru a se asocia la o licenta postata de o firma
+		 // Buton de download
+		 echo "<a href='download.php?". $id . "'><p>Download</p></a>";
+
+     //Buton pentru profesori pentru a se asocia la o licenta postata de o firma
+		 if(strcmp ( $tip_usr , "1" )==0 && strcmp ( $row['profesor'] , "" )==0)
+		 echo "<a href='asociaza_licenta.php?". $id . "-" . $nume_usr ."'><p>Asociaza-te la aceasta licenta!</p></a>";
 
       echo '</div>
 
