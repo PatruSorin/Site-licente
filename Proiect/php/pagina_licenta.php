@@ -2,8 +2,8 @@
 //TO DO: Metoda care determina ce tip de utilizator a dat submit la form
 class info{
 
-function tip_cont(){return "1";}
-function nume(){return "Nume profesor";}
+function tip_cont(){return "3";}
+function nume(){return "Patru Sorin";}
 
 }
 $a= new info;
@@ -66,7 +66,9 @@ echo '<!DOCTYPE html>
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">';
 
+    //-----------------------------------------------------------------------------------------------------------------
     //-------------------------------------CONTINUT PAGINA-------------------------------------------------------------
+    //-----------------------------------------------------------------------------------------------------------------
     	echo '<div id="content">';
 
       echo "<div><p id='p_titlu'>".$row['titlu']."</p><br>";
@@ -81,6 +83,12 @@ echo '<!DOCTYPE html>
 		 if(strcmp ( $tip_usr , "1" )==0 && strcmp ( $row['profesor'] , "" )==0)
 		 echo "<a href='asociaza_licenta.php?". $id . "-" . $nume_usr ."'><p>Asociaza-te la aceasta licenta!</p></a>";
 
+     if(strcmp ( $tip_usr , "3" )==0 && strcmp ( $row['profesor'] , "" )!=0)
+     echo "<a href='aplica_licenta.php?". $id . "-" . $nume_usr ."'><p>Aplica pentru aceasta licenta!</p></a>";
+
+     //-----------------------------------------------------------------------------------------------------------------
+     //-----------------------------------------------------------------------------------------------------------------
+     //-----------------------------------------------------------------------------------------------------------------
       echo '</div>
 
 			<div id="right-side" class="col-sm-2">
