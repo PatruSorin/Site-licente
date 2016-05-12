@@ -35,15 +35,22 @@ if($tableExists){
             }
 }
 
+//Verificam daca studentul a aplicat deja la aceasta licenta
+ $query = "SELECT * FROM $nume_tabel WHERE nume_aplicant = '$nume'";
+$exista_nume = is_null($query) > 0 ? 'yes' : 'no';
 
-//Adauga numele studentului la lista de aplicanti pentru licenta cu id-ul X
-$query = "INSERT INTO $nume_tabel (nume_aplicant) VALUES ('$nume')";
+if(strcmp ( $exista_nume , "yes" )==0) {
+      //Adauga numele studentului la lista de aplicanti pentru licenta cu id-ul X
+      $query = "INSERT INTO $nume_tabel (nume_aplicant) VALUES ('$nume')";
 
-if ($dbc->query($query) === TRUE) {
-    echo "Date introduse cu succes.";
-} else {
-    echo "Eroare: " . $dbc->error;
+      if ($dbc->query($query) === TRUE) {
+          echo "Date introduse cu succes.";
+      } else {
+          echo "Eroare: " . $dbc->error;
+      }
 }
+
+
 
 
 

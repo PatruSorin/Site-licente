@@ -3,7 +3,7 @@
 class info{
 
 function tip_cont(){return "3";}
-function nume(){return "Patru Sorin";}
+function nume(){return "Radu Cristian";}
 
 }
 $a= new info;
