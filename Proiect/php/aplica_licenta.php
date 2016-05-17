@@ -14,9 +14,9 @@ $nume = $date[0] . " " . $date[1];
 require_once('../mysqli_connect.php');
 
 //Verificam daca exista un tabel pentru aplicantii de la licenta cu id-ul x
-  $query = "SHOW TABLES LIKE $id";
+  $query = "SHOW TABLES LIKE '%$id'";
   $response = @mysqli_query($dbc, $query);
-  $tableExists = $dbc->query($query) > 0;
+  $tableExists = is_null(mysqli_fetch_array($response)) > 0;
 
 $nume_tabel= "licenta_".$id;
 
@@ -37,7 +37,8 @@ if($tableExists){
 
 //Verificam daca studentul a aplicat deja la aceasta licenta
  $query = "SELECT * FROM $nume_tabel WHERE nume_aplicant = '$nume'";
-$exista_nume = is_null($query) > 0 ? 'yes' : 'no';
+ $response = @mysqli_query($dbc, $query);
+$exista_nume = is_null(mysqli_fetch_array($response)) > 0 ? 'yes' : 'no';
 
 if(strcmp ( $exista_nume , "yes" )==0) {
       //Adauga numele studentului la lista de aplicanti pentru licenta cu id-ul X
