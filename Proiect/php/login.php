@@ -33,7 +33,7 @@ if(isset($_POST['submit'])) {
 
         require_once('../mysqli_connect.php');
 
-        //protectic sql injection
+        //protect sql injection
         $username = stripslashes($username);
         $password = stripslashes($password);
         $username = mysqli_real_escape_string($dbc, $username);
@@ -50,6 +50,7 @@ if(isset($_POST['submit'])) {
                 //setare variabile de sesiune
                 session_start();
                 $_SESSION['tip_cont'] = $row['tip_cont'];
+                $_SESSION['username'] = $row['username'];
                 if (strcmp($row['tip_cont'], '2') == 0)
                     $_SESSION['nume'] = $row['nume'];
                 else {
@@ -59,11 +60,13 @@ if(isset($_POST['submit'])) {
             else
             {
                 echo 'Combinatia username/parola nu a fost gasita<br />';
+                die();
             }
         }
         else
         {
             echo 'A intervenit o eroare<br />';
+            die();
         }
 
     } else {

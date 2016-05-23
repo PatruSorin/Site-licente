@@ -1,15 +1,8 @@
 <?php
 
-//TO DO: Metoda care determina ce tip de utilizator a dat submit la form
-class info{
+session_start();
 
-function tip_cont(){return "1";}
-function nume(){return "Stupariu Sorin";}
-
-}
 //Validare informatii primite prin post de la formular (adaugalicenta.html)
-
-$a= new info;
 
 if(isset($_POST['submit'])){
 
@@ -40,8 +33,8 @@ if(isset($_POST['submit'])){
     }
 
     //------------------------Posibile modificari aici--------------------------
-    $tip_usr=$a->tip_cont();
-    $nume_usr=$a->nume();
+    $tip_usr=$_SESSION['tip_cont']
+    $nume_usr=$_SESSION['nume']
     //-------------------------------------------------------------------------
 
     //Upload fisier

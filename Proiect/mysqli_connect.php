@@ -18,6 +18,7 @@ DELETE : Delete existing rows (Remove privilege if not required)
 */
 
 // Defined as constants so that they can't be changed
+session_start();
 DEFINE ('DB_USER', 'root');
 DEFINE ('DB_PASSWORD', '');
 DEFINE ('DB_HOST', 'localhost');

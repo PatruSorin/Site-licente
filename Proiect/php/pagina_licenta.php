@@ -1,15 +1,9 @@
 <?php
-//TO DO: Metoda care determina ce tip de utilizator a dat submit la form
-class info{
 
-function tip_cont(){return "3";}
-function nume(){return "Radu Cristian";}
+session_start();
 
-}
-$a= new info;
-
- $nume_usr=$a->nume();
- $tip_usr=$a->tip_cont();
+ $nume_usr=$_SESSION['nume'];
+ $tip_usr=$_SESSION['tip_cont'];
 
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
 $id=$_SERVER['QUERY_STRING'];

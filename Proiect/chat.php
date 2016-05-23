@@ -40,14 +40,14 @@
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
 			<div id="content">
-				<form action="php\login.php" method="post" enctype="multipart/form-data">
-					<p>Username:</p>
-					<input type="text" name="username"><br>
-					<p>Password:</p>
-					<input type="text" name="password"><br>
-					<input type="submit" value="Log In" name="submit">
-				</form>
-			</div>
+
+        <?php
+				// Accesare fisier php care genereaza lista cu licente.
+				require 'php\pm.php';
+
+				?>
+
+      </div>
 
 			<div id="right-side" class="col-sm-2">
 				<div id="parteneriHome" class="col-sm-2" >
@@ -76,4 +76,4 @@
 	</div>
 </body>
 
-</html>
+</html>3

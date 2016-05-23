@@ -1,15 +1,8 @@
 <?php
 
-//TO DO: Metoda care determina ce tip de utilizator a dat submit la form
-class info{
+session_start();
 
-function tip_cont(){return "3";}
-function nume(){return "Radu Cristian";}
-
-}
-$a= new info;
-
- $tip_usr=$a->tip_cont();
+ $tip_usr=$_SESSION['tip_cont'];
 
 //TO DO: Verifica daca a fost cautat ceva prin post si realizeaza un query (functia de search a site-ului)
 
