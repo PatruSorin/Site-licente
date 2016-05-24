@@ -63,7 +63,7 @@ else if(strcmp ( $tip_cont , "3" )==0) {
     if($rowcount2 == 1)
     {
         $pstring = explode(" ",$row['profesor']);
-        echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
+        //echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
         $pquery = "SELECT * FROM utilizatori u WHERE u.nume = '$pstring[0]' AND u.prenume = '$pstring[1]' ";
         $response4 = @mysqli_query($dbc, $pquery);
         $row=mysqli_fetch_array($response4);
