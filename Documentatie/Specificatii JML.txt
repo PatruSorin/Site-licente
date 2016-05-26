@@ -1,0 +1,41 @@
+SPECIFICATII JML
+
+1.
+
+LOGIN
+
+/*@ public normal_behavior
+  @ requires !userAuthenticated;
+  @ requires username==login.existingUsername;
+  @ requires password==login.correctPassword;
+  @ ensures userAuthenticated;
+  @*/
+
+  
+2.
+
+ADAUGARE LICENTA
+
+/*@ public normal_behavior
+  @ requires !licentaPostata;
+  @ requires titlu==empty || descriere==empty || fisier==empty;
+  @ ensures emptyError;
+  @
+  @ also
+  @
+  @ requires !licentaPostata;
+  @ requires titlu!=empty;
+  @ requires descriere!=empty;
+  @ requires fisier!=empty;
+  @ requires userType='Student';
+  @ ensures permissionError;
+  @
+  @ also
+  @
+  @ requires !licentaPostata;
+  @ requires titlu!=empty;
+  @ requires descriere!=empty;
+  @ requires fisier!=empty;
+  @ requires userType!='Student';
+  @ ensures licentaPostata;
+  @*/
