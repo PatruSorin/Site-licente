@@ -19,19 +19,25 @@
 
 			<div id="quickLinks">
 				<div id="header_links">
-					<a href="login.html"  title="cont companii">cont companii</a> |
-					<a href="login.html"  title="cont studenti">cont studenti</a> |
-					<a href="login.html"  title="cont profesori">cont profesori</a>
+					<?php
+                session_start();
+                if(isset($_SESSION['username'])) {
+                    echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
+                }
+                else {
+                    echo '<a href="login.html"  title="Logheaza-te">Login</a>';
+                }
+                ?>
 				</div>
 			</div>
 
 			<br/>
 
 			<ul id="mainMenu">
-				<li><a href="index.html"  title="index">Home</a></li>
-				<li><a href="despre.html"  title="despre">despre</a></li>
+				<li><a href="index.php"  title="index">Home</a></li>
+				<li><a href="despre.php"  title="despre">despre</a></li>
 				<li><a href="listalicente.php"  title="licente">Lista licente</a></li>
-				<li><a href="contact.html"  title="contact">contact</a></li>
+				<li><a href="contact.php"  title="contact">contact</a></li>
 				<li><a href="chat.php" title="chat">Chat</a></li>
 			</ul>
 		</div>
@@ -39,26 +45,7 @@
 
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
-			<div id="content">
-
-
-					<!-- Formular pentru postarea unei licentre noi -->
-
-				<form action="php\adauga_licenta.php" method="post" enctype="multipart/form-data" >
-					TITLU
-					<br/>
-					<input type="text" name="titlu" required><br>
-					DESCRIERE
-					<br/>
-					<input type="text" name="descriere" required><br>
-					INCARCA FISIER
-					<input type="file" name="documentatie">
-					<!-- <input type="submit" value="Select.."> -->
-					<br/>
-					Adauga licenta! <input type="submit" value="Adauga" name="submit">
-				</form>
-
-			</div>
+			<div id="content">CONTACT</div>
 
 			<div id="right-side" class="col-sm-2">
 				<div id="parteneriHome" class="col-sm-2" >
