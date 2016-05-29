@@ -1,12 +1,13 @@
 <?php
 
+error_reporting(0);
 session_start();
 
- $nume_usr=$_SESSION['nume'];
- $tip_usr=$_SESSION['tip_cont'];
+$nume_usr = $_SESSION['nume'];
+$tip_usr = $_SESSION['tip_cont'];
 
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
-$id=$_SERVER['QUERY_STRING'];
+$id = $_SERVER['QUERY_STRING'];
 
 //Interogare baza de date si introducere informatii intr-un vector
 require_once('../mysqli_connect.php');
@@ -38,11 +39,13 @@ echo '<!DOCTYPE html>
 			</div>
 
 			<div id="quickLinks">
-				<div id="header_links">
-					<a href="../login.html"  title="cont companii">cont companii</a> |
-					<a href="../login.html"  title="cont studenti">cont studenti</a> |
-					<a href="../login.html"  title="cont profesori">cont profesori</a>
-				</div>
+				<div id="header_links">';
+if (isset($_SESSION['username'])) {
+    echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
+} else {
+    echo '<a href="login.html"  title="Logheaza-te">Login</a>';
+}
+echo '</div>
 			</div>
 
 			<br/>
@@ -52,7 +55,7 @@ echo '<!DOCTYPE html>
 				<li><a href="../despre.html"  title="despre">despre</a></li>
 				<li><a href="../listalicente.php"  title="licente">Lista licente</a></li>
 				<li><a href="../contact.html"  title="contact">contact</a></li>
-				<li><a href="../chat.html" title="chat">Chat</a></li>
+				<li><a href="../chat.php" title="chat">Chat</a></li>
 			</ul>
 		</div>
 	</div>
@@ -60,30 +63,30 @@ echo '<!DOCTYPE html>
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">';
 
-    //-----------------------------------------------------------------------------------------------------------------
-    //-------------------------------------CONTINUT PAGINA-------------------------------------------------------------
-    //-----------------------------------------------------------------------------------------------------------------
-    	echo '<div id="content">';
+//-----------------------------------------------------------------------------------------------------------------
+//-------------------------------------CONTINUT PAGINA-------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+echo '<div id="content">';
 
-      echo "<div><p id='p_titlu'>".$row['titlu']."</p><br>";
-      echo "<p id='p_descriere'>".$row['descriere']."</p><br>";
-      echo "<p id='p_profesor'>".$row['profesor']."</p><br>";
-      echo "<p id='p_firma'>".$row['firma']."</p><br>";
+echo "<div><p id='p_titlu'>" . $row['titlu'] . "</p><br>";
+echo "<p id='p_descriere'>" . $row['descriere'] . "</p><br>";
+echo "<p id='p_profesor'>" . $row['profesor'] . "</p><br>";
+echo "<p id='p_firma'>" . $row['firma'] . "</p><br>";
 
-		 // Buton de download
-		 echo "<a href='download.php?". $id . "'><p>Download</p></a>";
+// Buton de download
+echo "<a href='download.php?" . $id . "'><p>Download</p></a>";
 
-     //Buton pentru profesori pentru a se asocia la o licenta postata de o firma
-		 if(strcmp ( $tip_usr , "1" )==0 && strcmp ( $row['profesor'] , "" )==0)
-		 echo "<a href='asociaza_licenta.php?". $id . "-" . $nume_usr ."'><p>Asociaza-te la aceasta licenta!</p></a>";
+//Buton pentru profesori pentru a se asocia la o licenta postata de o firma
+if (strcmp($tip_usr, "1") == 0 && strcmp($row['profesor'], "") == 0)
+    echo "<a href='asociaza_licenta.php?" . $id . "-" . $nume_usr . "'><p>Asociaza-te la aceasta licenta!</p></a>";
 
-     if(strcmp ( $tip_usr , "3" )==0 && strcmp ( $row['profesor'] , "" )!=0)
-     echo "<a href='aplica_licenta.php?". $id . "-" . $nume_usr ."'><p>Aplica pentru aceasta licenta!</p></a>";
+if (strcmp($tip_usr, "3") == 0 && strcmp($row['profesor'], "") != 0)
+    echo "<a href='aplica_licenta.php?" . $id . "-" . $nume_usr . "'><p>Aplica pentru aceasta licenta!</p></a>";
 
-     //-----------------------------------------------------------------------------------------------------------------
-     //-----------------------------------------------------------------------------------------------------------------
-     //-----------------------------------------------------------------------------------------------------------------
-      echo '</div>
+//-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+echo '</div>
 
 			<div id="right-side" class="col-sm-2">
 				<div id="parteneriHome" class="col-sm-2" >

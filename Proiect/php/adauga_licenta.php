@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+error_reporting(0);
 
 //Validare informatii primite prin post de la formular (adaugalicenta.html)
 
@@ -33,8 +34,8 @@ if(isset($_POST['submit'])){
     }
 
     //------------------------Posibile modificari aici--------------------------
-    $tip_usr=$_SESSION['tip_cont']
-    $nume_usr=$_SESSION['nume']
+    $tip_usr=$_SESSION['tip_cont'];
+    $nume_usr=$_SESSION['nume'];
     //-------------------------------------------------------------------------
 
     //Upload fisier
@@ -119,5 +120,5 @@ if(isset($_POST['submit'])){
 
 
 //Redirect la home
-header("Location: ../index.html");
+header("Location: ../index.php");
 die();
