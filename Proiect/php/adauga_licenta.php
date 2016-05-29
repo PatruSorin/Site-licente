@@ -108,7 +108,7 @@ if(isset($_POST['submit'])){
 
             }
 
-            header("Location: ../aduagalicenta.html");
+            header("Location: ../aduagalicenta.php");
             die();
 
         }

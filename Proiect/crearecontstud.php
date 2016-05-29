@@ -14,7 +14,7 @@
 	<div id="header_all" class="row">
 		<div id="header">
 			<div id="logo">
-				<a href="index.html" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
+				<a href="index.php" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
 			</div>
 
 			<div id="quickLinks">
@@ -25,7 +25,7 @@
                     echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
                 }
                 else {
-                    echo '<a href="login.html"  title="Logheaza-te">Login</a>';
+                    echo '<a href="login.php"  title="Logheaza-te">Login</a>';
                 }
                 ?>
 				</div>
@@ -46,7 +46,7 @@
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
 			<div id="content">
-				<form>
+				<form action="php\contstud.php" method="post" enctype="multipart/form-data">
 					CREARE CONT
 					<br>
 					Nume:
@@ -183,4 +183,4 @@
 	</div>
 </body>
 
-</html>3
+</html>

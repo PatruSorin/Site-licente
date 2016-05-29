@@ -14,25 +14,31 @@
 	<div id="header_all" class="row">
 		<div id="header">
 			<div id="logo">
-				<a href="index.html" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
+				<a href="index.php" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
 			</div>
 
 			<div id="quickLinks">
 				<div id="header_links">
-					<a href="login.html"  title="cont companii">cont companii</a> |
-					<a href="login.html"  title="cont studenti">cont studenti</a> |
-					<a href="login.html"  title="cont profesori">cont profesori</a>
+					<?php
+                session_start();
+                if(isset($_SESSION['username'])) {
+                    echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
+                }
+                else {
+                    echo '<a href="login.php"  title="Logheaza-te">Login</a>';
+                }
+                ?>
 				</div>
 			</div>
 
 			<br/>
 
 			<ul id="mainMenu">
-				<li><a href="index.html"  title="index">Home</a></li>
-				<li><a href="despre.html"  title="despre">despre</a></li>
+				<li><a href="index.php"  title="index">Home</a></li>
+				<li><a href="despre.php"  title="despre">despre</a></li>
 				<li><a href="listalicente.php"  title="licente">Lista licente</a></li>
-				<li><a href="contact.html"  title="contact">contact</a></li>
-				<li><a href="chat.html" title="chat">Chat</a></li>
+				<li><a href="contact.php"  title="contact">contact</a></li>
+				<li><a href="chat.php" title="chat">Chat</a></li>
 			</ul>
 		</div>
 	</div>
@@ -76,4 +82,4 @@
 	</div>
 </body>
 
-</html>3
+</html>

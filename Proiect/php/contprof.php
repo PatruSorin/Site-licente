@@ -65,14 +65,14 @@ require_once('../mysqli_connect.php');
         }
         else {
             echo "Parolele introduse nu coincid.";
-            header("Location: ../crearecontprof.html");
+            header("Location: ../crearecontprof.php");
             die();
         }
     }
     else
     {
         echo "Username-ul introdus exista deja.";
-        header("Location: ../crearecontprof.html");
+        header("Location: ../crearecontprof.php");
         die();
     }
 

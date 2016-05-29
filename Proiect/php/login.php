@@ -78,7 +78,7 @@ if(isset($_POST['submit'])) {
 
             echo "$missing<br />";
             sleep(5);
-            header("Location: ../login.html");
+            header("Location: ../login.php");
             die();
 
         }

@@ -14,7 +14,7 @@
 <div id="header_all" class="row">
     <div id="header">
         <div id="logo">
-            <a href="index.html" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
+            <a href="index.php" title="LicenteFMI"><img src="img/fmi.png" alt=" " /></a>
         </div>
 
         <div id="quickLinks">
@@ -25,7 +25,7 @@
                     echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
                 }
                 else {
-                    echo '<a href="login.html"  title="Logheaza-te">Login</a>';
+                    echo '<a href="login.php"  title="Logheaza-te">Login</a>';
                 }
                 ?>
             </div>

@@ -65,14 +65,14 @@ if ($rowcount == 0) {
     }
     else {
         echo "Parolele introduse nu coincid.";
-        //header("Location: ../crearecontstud.html");
+        //header("Location: ../crearecontstud.php");
         die();
     }
 }
 else
 {
     echo "Username-ul introdus exista deja.";
-    //header("Location: ../crearecontstud.html");
+    //header("Location: ../crearecontstud.php");
     die();
 }
 

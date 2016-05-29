@@ -46,11 +46,22 @@
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
 			<div id="content">
-			<h1>Despre FMI</h1>
-				<h3>Scurt istoric</h3>
-				La infiintarea Universitatii din Bucuresti, in anul 1864, prin decret al domnitorului Al.I.Cuza, s-a constituit in cadrul ei o Facultate de Stiinte, cu o sectie de Matematica. In 1949, din Facultatea de Stiinte s-a desprins Facultatea de Matematica si Fizica cu sectii de matematica si fizica. In 1962, sectia de matematica s-a desprins si a luat fiinta Facultatea de Matematica. Din 2002, aceasta se numeste Facultatea de Matematica si Informatica.
-				<h3>Informatii generale</h3>
-				Facultatea noastra este cea mai buna dintre cele de profil din tara, fiind clasificata in categoria A in cele doua domenii principale de studiu, Matematica si Informatica. Absolventii nostri nu au nici o problema in a-si gasi locuri de munca (unii lucreaza inca din timpul studiilor) in informatica, industrie, cercetare aplicata, mediul bancar si de asigurari, invatamant de toate gradele; cei care doresc pot continua studiile in scolile doctorale din tara sau din strainatate, unde sunt acceptati usor.
+				<form action="php/login.php" method="post" enctype="multipart/form-data">
+					<p>Username:</p>
+					<input type="text" name="username"><br>
+					<p>Password:</p>
+					<input type="text" name="password"><br>
+					<br>
+					<input type="submit" value="Log In" name="submit">
+					<br>
+					Nu ai cont? Creaza unul acum!
+					<br>
+					<a href="crearecontfirma.php"> CREARE CONT COMPANIE </a>
+					||
+					<a href="crearecontstud.php"> CREARE CONT STUDENT </a>
+					||
+					<a href="crearecontprof.php"> CREARE CONT PROFESOR </a>
+				</form>
 			</div>
 
 			<div id="right-side" class="col-sm-2">
