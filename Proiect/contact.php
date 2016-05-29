@@ -45,7 +45,13 @@
 
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">
-			<div id="content">CONTACT</div>
+			<div id="content">
+			<h1>Contact</h1>
+			<p><b>Adresa:</b>Str. Academiei nr.14, Cod postal 010014, Bucuresti, Sector 1 </p>
+			<p><b>Telefon:</b> 314 3508, 314 8507, 314 2863 </p>
+            <p><b>Fax:</b> 315 6990 </p>
+			<p><b>E-mail:</b> secretariat fmi.unibuc.ro </p>
+			</div>
 
 			<div id="right-side" class="col-sm-2">
 				<div id="parteneriHome" class="col-sm-2" >

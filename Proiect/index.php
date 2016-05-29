@@ -46,6 +46,10 @@
 <div id="wrapper_all" class="row">
     <div id="wrapper" class="col-sm-10">
         <div id="content">
+		<h1>Bine ati venit!</h1>
+		<h3>Ce isi propune site-ul LicenteFMI?</h3>
+		<p>Am creat acest site cu intentia de a ajuta studentii cu lucrarile lor de licenta! Cu ajutorul site-ului nostru un student isi poate alege usor o licenta, un profesor indrumator, sau poate chiar beneficia de ajutorul unei firme.</p>
+		<h3>Va dorim o experienta placuta!</h3>
         </div>
 
         <div id="right-side" class="col-sm-2">
