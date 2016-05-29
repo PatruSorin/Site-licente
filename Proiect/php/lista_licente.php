@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 session_start();
 
  $tip_usr=$_SESSION['tip_cont'];

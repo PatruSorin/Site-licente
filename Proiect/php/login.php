@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if(isset($_POST['submit'])) {
 
     //Verificare existenta informatii
@@ -84,5 +85,5 @@ if(isset($_POST['submit'])) {
     }
 }
 
-header("Location: ../index.html");
+header("Location: ../index.php");
 die();

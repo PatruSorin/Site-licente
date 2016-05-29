@@ -1,5 +1,6 @@
 <?php
 
+error_reporting(0);
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
 $id=$_SERVER['QUERY_STRING'];
 

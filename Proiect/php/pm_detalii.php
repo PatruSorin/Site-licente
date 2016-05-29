@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require_once('../mysqli_connect.php');
 $username = $_SESSION['username'];
 $c_id=$_SERVER['QUERY_STRING'];
@@ -33,11 +34,14 @@ if($response) {
 			</div>
 
 			<div id="quickLinks">
-				<div id="header_links">
-					<a href="../login.html"  title="cont companii">cont companii</a> |
-					<a href="../login.html"  title="cont studenti">cont studenti</a> |
-					<a href="../login.html"  title="cont profesori">cont profesori</a>
-				</div>
+				<div id="header_links">';
+        if(isset($_SESSION['username'])) {
+            echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
+        }
+        else {
+            echo '<a href="login.html"  title="Logheaza-te">Login</a>';
+        }
+				echo '</div>
 			</div>
 
 			<br/>
@@ -47,7 +51,7 @@ if($response) {
 				<li><a href="../despre.html"  title="despre">despre</a></li>
 				<li><a href="../listalicente.php"  title="licente">Lista licente</a></li>
 				<li><a href="../contact.html"  title="contact">contact</a></li>
-				<li><a href="../chat.html" title="chat">Chat</a></li>
+				<li><a href="../chat.php" title="chat">Chat</a></li>
 			</ul>
 		</div>
 	</div>
@@ -96,6 +100,4 @@ if($response) {
 
     }
 }
-else
-    die("NU.");
 ?>
