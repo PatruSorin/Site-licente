@@ -58,3 +58,5 @@ if(strcmp ( $exista_nume , "yes" )==0) {
 
 
 $dbc->close();
+header("Location: ../index.php");
+die();

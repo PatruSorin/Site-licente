@@ -1,5 +1,6 @@
 <?php
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
+error_reporting(0);
 $str = $_SERVER['QUERY_STRING'];
 $date = explode("-",$str);
 

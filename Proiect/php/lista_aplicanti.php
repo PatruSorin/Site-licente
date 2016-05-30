@@ -1,6 +1,7 @@
 <?php
 
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
+error_reporting(0);
 $str = $_SERVER['QUERY_STRING'];
 
 //Introducem datele din vector in variabile cu nume mai explicite pentru comoditate
