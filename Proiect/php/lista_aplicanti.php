@@ -1,8 +1,8 @@
 <?php
 
 //Obtinem id-ul licentei pentru care trebuie sa generam pagina
-error_reporting(0);
 $str = $_SERVER['QUERY_STRING'];
+error_reporting(0);
 
 //Introducem datele din vector in variabile cu nume mai explicite pentru comoditate
 $id = $str[0];
@@ -57,7 +57,8 @@ echo '<!DOCTYPE html>
 	</div>
 
 	<div id="wrapper_all" class="row">
-		<div id="wrapper" class="col-sm-10">';
+		<div id="wrapper" class="col-sm-10">
+		<div id="content">';
 		
  if($response){
 echo '<table align="left"
@@ -72,9 +73,8 @@ while($row = mysqli_fetch_array($response)){
 
       echo '<tr><td align="left">' .
       $row['nume_aplicant'] . '</td><td align="left">' .
-      '<form action="accepta_aplicant.php?' . $id.'-'.$row['nume_aplicant'] . '" method="post"><input type="submit" value="Candidati" name="submit"></form>' .
-      '</td><td align="left">' .
-      '<td align="left">';
+      '<form action="accepta_aplicant.php?' . $id.'-'.$row['nume_aplicant'] . '" method="post"><input type="submit" value="Accepta" name="submit"></form>' .
+      '</td>';
       echo '</tr>';
 
 

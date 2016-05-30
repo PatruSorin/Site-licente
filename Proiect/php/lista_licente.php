@@ -18,22 +18,20 @@ if(isset($_SESSION['username'])) {
     if ($response && $rowcount != 0) {
         // Creare lista pentru Profesori
         if (strcmp($tip_usr, "1") == 0) {
-            echo '<table align="left"
+            echo '<table
                 cellspacing="5" cellpadding="8">
-
-                <tr><td align="left"><b>Titlu</b></td>
-                <td align="left"><b>Firma</b></td>
-                <td align="left"><b>Documentatie</b></td>
+                <tr><td><b>Titlu</b></td>
+                <td><b>Firma</b></td>
+                <td><b>Documentatie</b></td>
                 </tr>';
 
             while ($row = mysqli_fetch_array($response)) {
                 if (strcmp($row['profesor'], "") == 0) {
-                    echo '<tr><td align="left">' .
-                        $row['titlu'] . '</td><td align="left">' .
-                        $row['firma'] . '</td><td align="left">' .
+                    echo '<tr><td>' .
+                        $row['titlu'] . '</td><td>' .
+                        $row['firma'] . '</td><td>' .
                         '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
-                        '</td><td align="left">' .
-                        '<td align="left">';
+                        '</td>';
                     echo '</tr>';
                 }
 
@@ -43,26 +41,27 @@ if(isset($_SESSION['username'])) {
 
         }
         // Creare lista pentru Studenti si Firme
+
         if (strcmp($tip_usr, "2") == 0 || strcmp($tip_usr, "3") == 0) {
 
-            echo '<table align="left"
+            echo '<table
         cellspacing="5" cellpadding="8">
 
-        <tr><td align="left"><b>Titlu</b></td>
-        <td align="left"><b>Profesor</b></td>
-        <td align="left"><b>Firma</b></td>
-        <td align="left"><b>Documentatie</b></td>
+        <tr><td><b>Titlu</b></td>
+        <td><b>Profesor</b></td>
+        <td><b>Firma</b></td>
+        <td><b>Documentatie</b></td>
         </tr>';
 
             while ($row = mysqli_fetch_array($response)) {
                 if (strcmp($row['profesor'], "") != 0 && strcmp($row['student'], "") == 0) {
-                    echo '<tr><td align="left">' .
-                        $row['titlu'] . '</td><td align="left">' .
-                        $row['profesor'] . '</td><td align="left">' .
-                        $row['firma'] . '</td><td align="left">' .
+                    echo '<tr><td>' .
+                        $row['titlu'] . '</td><td>' .
+                        $row['profesor'] . '</td><td>' .
+                        $row['firma'] . '</td><td>' .
                         '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
-                        '</td><td align="left">' .
-                        '<td align="left">';
+                        '</td>' ;
+
                     echo '</tr>';
                 }
             }

@@ -63,18 +63,18 @@ echo'      </div>
 					<table>
 						<tr>
 							<td align=\'center\' valign=\'center\' width=\'150\' height=\'80\'>
-								<a href=\'\' title=\'Amazon Development Center Romania\'><img src=\'img/amazon.jpg\' border=\'0\' alt=\'Amazon Development Center Romania\' hspace=\'0\' vspace=\'0\' /></a>
+								<a href=\'\' title=\'Amazon Development Center Romania\'><img src=\'../img/amazon.jpg\' border=\'0\' alt=\'Amazon Development Center Romania\' hspace=\'0\' vspace=\'0\' /></a>
 							</td>
 							<td align=\'center\' valign=\'center\' width=\'150\' height=\'80\'>
-								<a href=\'\' title=\'SC Info World SRL\'><img src=\'img/infoworld.jpg\' border=\'0\' alt=\'SC Info World SRL\' hspace=\'0\' vspace=\'0\' /></a>
+								<a href=\'\' title=\'SC Info World SRL\'><img src=\'../img/infoworld.jpg\' border=\'0\' alt=\'SC Info World SRL\' hspace=\'0\' vspace=\'0\' /></a>
 							</td>
 						</tr>
 						<tr>
 							<td align=\'center\' valign=\'center\' width=\'150\' height=\'80\'>
-								<a href=\'\' title=\'Intel Romania Software Development Center\'><img src=\'img/intel.jpg\' border=\'0\' alt=\'Intel Romania Software Development Center\' hspace=\'0\' vspace=\'0\' /></a>
+								<a href=\'\' title=\'Intel Romania Software Development Center\'><img src=\'../img/intel.jpg\' border=\'0\' alt=\'Intel Romania Software Development Center\' hspace=\'0\' vspace=\'0\' /></a>
 							</td>
 							<td align=\'center\' valign=\'center\' width=\'150\' height=\'80\'>
-								<a href=\'\' title=\'TeamNet International\'><img src=\'img/teamnet.jpg\' border=\'0\' alt=\'TeamNet International\' hspace=\'0\' vspace=\'0\' /></a>
+								<a href=\'\' title=\'TeamNet International\'><img src=\'../img/teamnet.jpg\' border=\'0\' alt=\'TeamNet International\' hspace=\'0\' vspace=\'0\' /></a>
 							</td>
 						</tr>
 					</table>

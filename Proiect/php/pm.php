@@ -25,13 +25,11 @@ if(isset($_SESSION['username'])) {
     $response = @mysqli_query($dbc, $query);
     $rowcount = mysqli_num_rows($response);
     if ($rowcount != 0) {
-        echo '<table align="left"
+        echo '<table
                 cellspacing="5" cellpadding="8">
-
-                <tr><td align="left"><b>ID</b></td>
-                <td align="left"><b>User 1</b></td>
-                <td align="left"><b>User 2</b></td>
-                <td align="left"><b>Detalii</b></td>
+                <tr><td><b>Utilizator 1</b></td>
+                <td><b>Utilizator 2</b></td>
+                <td><b>Detalii</b></td>
                 </tr>';
         while ($row = mysqli_fetch_array($response)) {
             $c_id = $row['id'];
@@ -45,13 +43,11 @@ if(isset($_SESSION['username'])) {
 
 
             while ($crow = mysqli_fetch_array($response2)) {
-                echo '<tr><td align="left">' .
-                    $crow['cr_id'] . '</td><td align="left">' .
-                    $user_one . '</td><td align="left">' .
-                    $username . '</td><td align="left">' .
+                echo '<tr><td>' .
+                    $user_one . '</td><td>' .
+                    $username . '</td><td>' .
                     '<form action="php\pm_detalii.php?' . $crow['cr_id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
-                    '</td><td align="left">' .
-                    '<td align="left">';
+                    '</td>';
                 echo '</tr>';
 
             }

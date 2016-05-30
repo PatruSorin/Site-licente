@@ -52,7 +52,7 @@
 		session_start();
 		$tip_cont = $_SESSION['tip_cont'];
 		if (strcmp($tip_cont, "1") == 0 || strcmp($tip_cont, "2") == 0) {
-			echo '<a href="lista_contacte.php"  title="Contacte">Contacte</a>';
+			echo '<a href="lista_contacte.php"  title="Contacte">Contacte</a><br>';
 		}
 				// Accesare fisier php care genereaza lista cu licente.
 				require 'php\pm.php';

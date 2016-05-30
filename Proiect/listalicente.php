@@ -54,7 +54,11 @@
 				session_start();
 				$tip_cont = $_SESSION['tip_cont'];
 				if (strcmp($tip_cont, "1") == 0 || strcmp($tip_cont, "2") == 0) {
-					echo '<a href="adaugalicenta.php"  title="Adauga licenta">Adauga licenta</a>';
+					echo '<a href="adaugalicenta.php"  title="Adauga licenta">Adauga licenta</a><br/>';
+				}
+				if (strcmp($tip_cont, "1") == 0)
+				{
+					echo '<a href="php/accepta_candidat.php"  title="Lista aplicanti">Lista aplicanti</a>';
 				}
 				// Accesare fisier php care genereaza lista cu licente.
 				require 'php\lista_licente.php';
