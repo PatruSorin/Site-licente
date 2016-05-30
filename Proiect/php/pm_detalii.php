@@ -59,6 +59,7 @@ if($response) {
 	<div id="wrapper_all" class="row">
 		<div id="wrapper" class="col-sm-10">';
         echo '<div id="content">';
+        echo '<p>Mesaj:</p>';
         echo "<p>".$reply."</p>";
         if($username==$user_one) {
             echo '<form action="pm_nou.php?' . $user_two . '" method="post"><input type="submit" value="Raspunde"></form>';
