@@ -9,7 +9,7 @@ session_start();
 
 //Conectare la baza de date si realizare queriy
 require_once('mysqli_connect.php');//pozitia fisierului este luata relativ la listalicente.html (.php in cazul nostru)
-$query = "SELECT id,titlu, descriere, cale_fisier, profesor, firma, student FROM licente WHERE firma IS NOT NULL";
+$query = "SELECT id,titlu, descriere, cale_fisier, profesor, firma, student FROM licente";
 $response = @mysqli_query($dbc, $query);
 $rowcount = mysqli_num_rows($response);
 
