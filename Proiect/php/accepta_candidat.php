@@ -121,5 +121,5 @@ echo '</div>
 
 
 //Redirectionare
-//header("Location: ../index.html");
-//die();
+header("Location: ../index.html");
+die();

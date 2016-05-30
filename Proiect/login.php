@@ -48,9 +48,9 @@
 			<div id="content">
 				<form action="php/login.php" method="post" enctype="multipart/form-data">
 					<p>Username:</p>
-					<input type="text" name="username"><br>
+					<input type="text" name="username" required><br>
 					<p>Password:</p>
-					<input type="text" name="password"><br>
+					<input type="password" name="password" required><br>
 					<br>
 					<input type="submit" value="Log In" name="submit">
 					<br>

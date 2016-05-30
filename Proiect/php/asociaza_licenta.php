@@ -40,3 +40,6 @@ if($affected_rows == 1){
     mysqli_close($dbc);
 
 }
+
+header("Location: ../index.php");
+die();

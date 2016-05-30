@@ -50,10 +50,10 @@
 					CREARE CONT
 					<br>
 					Nume:
-					<input type="text" name="nume"><br>
+					<input type="text" name="nume" required><br>
 					<br>
 					E-mail:
-					<input type="email" name="mail">
+					<input type="email" name="mail" required>
 					<br><br>
 					Data infiintare:
 						<select name="Month" onChange="changeDate(this.options[selectedIndex].value);">
@@ -132,22 +132,22 @@
 
 					</script><br><br>
 					Oras:
-					<input type="text" name="oras"><br>
+					<input type="text" name="oras" required><br>
 					<br>
 					Specializare:
-					<input type="text" name="specializare"><br>
+					<input type="text" name="specializare" required><br>
 					<br>
 					CUI:
-					<input type="text" name="cui"><br>
+					<input type="text" name="cui" required><br>
 					<br>
 					Username:
-					<input type="text" name="username"><br>
+					<input type="text" name="username" required><br>
 					<br>
 					Parola:
-					<input type="password" name="password"><br>
+					<input type="password" name="password" required><br>
 					<br>
 					Confirmare parola:
-					<input type="password" name="password2"><br>
+					<input type="password" name="password2" required><br>
 					<br>
 					<input type="submit" value="Creaza cont!">
 				</form>

@@ -102,6 +102,55 @@ if (strcmp($tip_cont, "1") == 0) {
         echo '<p>Nu supervizati licenta nici unei firme.</p>';
 
 }
+if (strcmp($tip_cont, "2") == 0) {
+    $pquery = "SELECT * FROM licente l WHERE l.firma='$nume_cont' AND l.student IS NOT NULL";
+    $presponse = @mysqli_query($dbc, $pquery);
+    $prowcount = mysqli_num_rows($presponse);
+//$row = mysqli_fetch_array($presponse);
+//echo "<script type='text/javascript'>alert('" . $row['student'] . "');</script>";
+    if ($prowcount > 0) {
+        while ($row = mysqli_fetch_array($presponse)) {
+
+            $sstring = explode(" ", $row['student']);
+            //echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
+            $squery = "SELECT * FROM utilizatori u WHERE u.nume = '$sstring[0]' AND u.prenume = '$sstring[1]' ";
+            $response5 = @mysqli_query($dbc, $squery);
+            $srow = mysqli_fetch_array($response5);
+            $student = $srow['username'];
+
+            echo '<p>Deschide o conversatie cu studentul ' . $row['student'] . '</p>' . '<form action="php\pm_nou.php?' . $student . '" method="post"><input type="submit" value="Contacteaza" name="submit"></form>';
+
+        }
+    }
+    else
+        echo '<p>Nu aveti studenti inregistrati la licente.</p>';
+
+    $pquery = "SELECT * FROM licente l WHERE l.firma='$nume_cont' AND l.profesor IS NOT NULL";
+    $presponse = @mysqli_query($dbc, $pquery);
+    $prowcount = mysqli_num_rows($presponse);
+//$row = mysqli_fetch_array($presponse);
+//echo "<script type='text/javascript'>alert('" . $row['student'] . "');</script>";
+    if ($prowcount > 0) {
+        while ($row = mysqli_fetch_array($presponse)) {
+            $sstring = explode(" ", $row['profesor']);
+            //$sstring = explode(" ", $row['student']);
+            //echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
+            //$firma = $row['firma'];
+            //$squery = "SELECT * FROM utilizatori u WHERE u.nume =' $firma ' ";
+            $squery = "SELECT * FROM utilizatori u WHERE u.nume = '$sstring[0]' AND u.prenume = '$sstring[1]' ";
+            $response5 = @mysqli_query($dbc, $squery);
+            $srow = mysqli_fetch_array($response5);
+            $student = $srow['username'];
+
+            echo '<p>Deschide o conversatie cu profesorul ' . $row['profesor'] . '</p>' . '<form action="php\pm_nou.php?' . $student . '" method="post"><input type="submit" value="Contacteaza" name="submit"></form>';
+
+        }
+    }
+    else
+        echo '<p>Nu aveti profesori asociati licentelor.</p>';
+
+}
+
 
 echo'      </div>
 

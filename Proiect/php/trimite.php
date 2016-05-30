@@ -22,5 +22,5 @@ if($response)
     $response3 = @mysqli_query($dbc, $query);
 }
 
-header("Location: ../index.php");
+header("Location: ../chat.php");
 die();

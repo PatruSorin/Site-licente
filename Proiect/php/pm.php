@@ -81,28 +81,6 @@ if(isset($_SESSION['username'])) {
         }
 
     }
-    if (strcmp($tip_cont, "1") == 0) {
-
-        $pquery = "SELECT * FROM licente l WHERE l.profesor='$nume_cont' AND l.student IS NOT NULL";
-        $presponse = @mysqli_query($dbc, $pquery);
-        $prowcount = mysqli_num_rows($presponse);
-        //$row = mysqli_fetch_array($presponse);
-        //echo "<script type='text/javascript'>alert('" . $row['student'] . "');</script>";
-        if ($prowcount > 0) {
-            while ($row = mysqli_fetch_array($presponse)) {
-
-                $sstring = explode(" ", $row['student']);
-                //echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
-                $squery = "SELECT * FROM utilizatori u WHERE u.nume = '$sstring[0]' AND u.prenume = '$sstring[1]' ";
-                $response5 = @mysqli_query($dbc, $squery);
-                $srow = mysqli_fetch_array($response5);
-                $student = $srow['username'];
-
-                echo '<p>Deschide o conversatie cu studentul ' . $row['student'] . '</p>' . '<form action="php\pm_nou.php?' . $student . '" method="post"><input type="submit" value="Contacteaza" name="submit"></form>';
-
-            }
-        }
-    }
 }
 else
     echo '<p>Nu sunteti logat.</p>';
