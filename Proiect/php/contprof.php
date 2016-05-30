@@ -18,7 +18,7 @@ require_once('../mysqli_connect.php');
     $tip_cont = 1;
     $data = $_POST['year'] . "-" . $_POST['Month'] . "-" . $_POST['day'];
 
-    echo "<script type='text/javascript'>alert('$data');</script>";
+    //echo "<script type='text/javascript'>alert('$data');</script>";
 
     $query = "SELECT * FROM utilizatori WHERE username='$username'";
     $response = @mysqli_query($dbc, $query);

@@ -150,7 +150,7 @@
 					<input type="password" name="password"><br>
 					<br>
 					Confirmare parola:
-					<input type="password" name="password"><br>
+					<input type="password" name="password2"><br>
 					<br>
 					<input type="submit" value="Creaza cont!">
 				</form>

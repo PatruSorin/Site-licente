@@ -19,7 +19,7 @@ $password2 = $_POST['password2'];
 $tip_cont = 3;
 $data = $_POST['year'] . "-" . $_POST['Month'] . "-" . $_POST['day'];
 
-echo "<script type='text/javascript'>alert('$data');</script>";
+//echo "<script type='text/javascript'>alert('$data');</script>";
 
 $query = "SELECT * FROM utilizatori WHERE username='$username'";
 $response = @mysqli_query($dbc, $query);
