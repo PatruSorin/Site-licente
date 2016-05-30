@@ -9,7 +9,7 @@ session_start();
 
 //Conectare la baza de date si realizare queriy
 require_once('mysqli_connect.php');//pozitia fisierului este luata relativ la listalicente.html (.php in cazul nostru)
-$query = "SELECT id,	titlu, descriere, cale_fisier, profesor, firma, student FROM licente";
+$query = "SELECT id,titlu, descriere, cale_fisier, profesor, firma, student FROM licente WHERE firma IS NOT NULL";
 $response = @mysqli_query($dbc, $query);
 $rowcount = mysqli_num_rows($response);
 
@@ -74,5 +74,5 @@ if(isset($_SESSION['username'])) {
         echo '<p>Nu exista licente.</p>';
 }
 else
-    echo '<p>Nu suntenti logat.</p>';
+    echo '<p>Nu sunteti logat.</p>';
 

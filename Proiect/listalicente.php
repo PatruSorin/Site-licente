@@ -50,6 +50,12 @@
 			<div id="content">
 				<!-- TO DO: Adauga casuta pentru search si conecteaz-o la php\lista_licente -->
 				<?php
+				error_reporting(0);
+				session_start();
+				$tip_cont = $_SESSION['tip_cont'];
+				if (strcmp($tip_cont, "1") == 0 || strcmp($tip_cont, "2") == 0) {
+					echo '<a href="adaugalicenta.php"  title="Adauga licenta">Adauga licenta</a>';
+				}
 				// Accesare fisier php care genereaza lista cu licente.
 				require 'php\lista_licente.php';
 
