@@ -25,10 +25,10 @@ echo '<!DOCTYPE html>
 			<div id="quickLinks">
 				<div id="header_links">';
 if(isset($_SESSION['username'])) {
-    echo '<a href="php/logout.php"  title="Delogheaza-te">Logout</a>';
+    echo '<a href="../php/logout.php"  title="Delogheaza-te">Logout</a>';
 }
 else {
-    echo '<a href="login.php"  title="Logheaza-te">Login</a>';
+    echo '<a href="../login.php"  title="Logheaza-te">Login</a>';
 }
 			echo '	</div>
 			</div>

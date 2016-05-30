@@ -11,12 +11,14 @@ session_start();
 require_once('mysqli_connect.php');//pozitia fisierului este luata relativ la listalicente.html (.php in cazul nostru)
 $query = "SELECT id,	titlu, descriere, cale_fisier, profesor, firma, student FROM licente";
 $response = @mysqli_query($dbc, $query);
+$rowcount = mysqli_num_rows($response);
 
+if(isset($_SESSION['username'])) {
 //Daca sa executat query-ul corect
-if($response){
-      // Creare lista pentru Profesori
-      if(strcmp ( $tip_usr , "1" )==0){
-                echo '<table align="left"
+    if ($response && $rowcount != 0) {
+        // Creare lista pentru Profesori
+        if (strcmp($tip_usr, "1") == 0) {
+            echo '<table align="left"
                 cellspacing="5" cellpadding="8">
 
                 <tr><td align="left"><b>Titlu</b></td>
@@ -24,26 +26,26 @@ if($response){
                 <td align="left"><b>Documentatie</b></td>
                 </tr>';
 
-                while($row = mysqli_fetch_array($response)){
-                  if(strcmp ( $row['profesor'] , "" )==0){
-                      echo '<tr><td align="left">' .
-                      $row['titlu'] . '</td><td align="left">' .
-                      $row['firma'] . '</td><td align="left">' .
-                      '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
-                      '</td><td align="left">' .
-                      '<td align="left">';
-                      echo '</tr>';
-                  }
-
+            while ($row = mysqli_fetch_array($response)) {
+                if (strcmp($row['profesor'], "") == 0) {
+                    echo '<tr><td align="left">' .
+                        $row['titlu'] . '</td><td align="left">' .
+                        $row['firma'] . '</td><td align="left">' .
+                        '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
+                        '</td><td align="left">' .
+                        '<td align="left">';
+                    echo '</tr>';
                 }
-                echo '</table>';
+
+            }
+            echo '</table>';
 
 
-      }
-      // Creare lista pentru Studenti si Firme
-      if(strcmp ( $tip_usr , "2" )==0 || strcmp ( $tip_usr , "3" )==0){
+        }
+        // Creare lista pentru Studenti si Firme
+        if (strcmp($tip_usr, "2") == 0 || strcmp($tip_usr, "3") == 0) {
 
-        echo '<table align="left"
+            echo '<table align="left"
         cellspacing="5" cellpadding="8">
 
         <tr><td align="left"><b>Titlu</b></td>
@@ -52,21 +54,25 @@ if($response){
         <td align="left"><b>Documentatie</b></td>
         </tr>';
 
-        while($row = mysqli_fetch_array($response)){
-          if(strcmp ( $row['profesor'] , "" )!=0 && strcmp ( $row['student'] , "" )==0){
-              echo '<tr><td align="left">' .
-              $row['titlu'] . '</td><td align="left">' .
-              $row['profesor'] . '</td><td align="left">' .
-              $row['firma'] . '</td><td align="left">' .
-              '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
-              '</td><td align="left">' .
-              '<td align="left">';
-              echo '</tr>';
-          }
+            while ($row = mysqli_fetch_array($response)) {
+                if (strcmp($row['profesor'], "") != 0 && strcmp($row['student'], "") == 0) {
+                    echo '<tr><td align="left">' .
+                        $row['titlu'] . '</td><td align="left">' .
+                        $row['profesor'] . '</td><td align="left">' .
+                        $row['firma'] . '</td><td align="left">' .
+                        '<form action="php\pagina_licenta.php?' . $row['id'] . '" method="post"><input type="submit" value="Detalii" name="submit"></form>' .
+                        '</td><td align="left">' .
+                        '<td align="left">';
+                    echo '</tr>';
+                }
+            }
+            echo '</table>';
+
+
         }
-        echo '</table>';
-
-
-
-      }
+    } else
+        echo '<p>Nu exista licente.</p>';
 }
+else
+    echo '<p>Nu suntenti logat.</p>';
+

@@ -4,6 +4,9 @@ require_once('mysqli_connect.php');
 $tip_cont = $_SESSION['tip_cont'];
 $user_one = $_SESSION['username'];
 $nume_cont = $_SESSION['nume'];
+
+
+
 $query = "SELECT c.id,u.username,u.email
  FROM conversatie c, utilizatori u
  WHERE
