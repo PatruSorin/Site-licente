@@ -66,7 +66,7 @@ cellspacing="5" cellpadding="8">
 
 <tr>
 <td align="left"><b>Aplicant</b></td>
-<td align="left"><b>Acepta aplicant</b></td>
+<td align="left"><b>Accepta aplicant</b></td>
 </tr>';
 
 while($row = mysqli_fetch_array($response)){

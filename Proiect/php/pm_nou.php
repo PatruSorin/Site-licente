@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-
+session_start();
 $profesor=$_SERVER['QUERY_STRING'];
 
 echo '<!DOCTYPE html>

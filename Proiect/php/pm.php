@@ -63,6 +63,7 @@ if(isset($_SESSION['username'])) {
         $rowcount2 = mysqli_num_rows($response3);
         $row = mysqli_fetch_array($response3);
         if ($rowcount2 == 1) {
+			$nume = $row['profesor'];
             $pstring = explode(" ", $row['profesor']);
             //echo "<script type='text/javascript'>alert('$pstring[1]');</script>";
             $pquery = "SELECT * FROM utilizatori u WHERE u.nume = '$pstring[0]' AND u.prenume = '$pstring[1]' ";
@@ -71,7 +72,7 @@ if(isset($_SESSION['username'])) {
             $profesor = $row['username'];
 
             echo '<p>Nu exista conversatii.</p>';
-            echo '<p>Deschide o conversatie cu profesorul ' . $profesor . '</p>' . '<form action="php\pm_nou.php?' . $profesor . '" method="post"><input type="submit" value="Contacteaza" name="submit"></form>';
+            echo '<p>Deschide o conversatie cu profesorul ' . $nume . '</p>' . '<form action="php\pm_nou.php?' . $profesor . '" method="post"><input type="submit" value="Contacteaza" name="submit"></form>';
         } else {
             echo '<p>Nu sunteti asociat unei licente.</p>';
         }
