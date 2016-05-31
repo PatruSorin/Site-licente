@@ -8,17 +8,19 @@ Comunicarea intre studenti si profesorii se va putea face si pe site prin interm
 	
 
 # Cerinte:
-- Mod de autentificare 
+- Utilizatorii se pot autentifica 
 
-- Modalitate de a posta o obtiune de licenta (acesibila numai pentru profesori/firme)
+- Profesorii si firmele pot posta o optiune de licenta
 
-- Modalitate de a te asocia unei lucrari de licenta (acesibil numai pentru studenti)
+- Studentii se pot asocia unei lucrari de licenta
 
-- Modalitate de comunicare intre studenti si profesori
+- Studentii, profesorii si firmele pot comunica intre ei
 
-- Modalitate de a accepta un student la o licenta dintr-o lista de candidati interesati (acesibila numai pentru profesori)
+- Profesorii pot accepta un student la o licenta dintr-o lista de candidati interesati
 
-- Modalitate de a vedea licentele disponibile
+- Profesorii pot aproba licentele firmelor
+
+- Utlizatorii pot vedea licentele disponibile
 
 # Proiect MDS realizat de:
  - Flavia Neacsu

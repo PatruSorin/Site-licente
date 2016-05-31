@@ -1,3 +1,0 @@
--buton creare cont -done
--buton logout
--m-am logat pe cont profesor si nu pot vedea lista de licente? //verificati si voi, poate doar mie nu imi merge
