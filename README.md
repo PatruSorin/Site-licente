@@ -1,13 +1,13 @@
 # Site-licente
 
-# Descriere:
+## Descriere:
 
 Site-ul va facilita comunicarea intre studentii din anul terminal si profesorii de licenta, acesta oferind o modalitate usoara pentru profesorii de a incarca temele de licenta pe care le ofera iar pentru studenti site-ul oferind un loc centralizat unde pot vizualiza toate posibilitatile de licenta disponibile.
 
 Comunicarea intre studenti si profesorii se va putea face si pe site prin intermediul unui chat/forum unde studentii vor putea pune intrebari profesorilor si primi raspunsuri de la acestia.
 	
 
-# Cerinte:
+## Cerinte:
 - Utilizatorii se pot autentifica 
 
 - Profesorii si firmele pot posta o optiune de licenta
@@ -22,7 +22,7 @@ Comunicarea intre studenti si profesorii se va putea face si pe site prin interm
 
 - Utlizatorii pot vedea licentele disponibile
 
-# Proiect MDS realizat de:
+## Proiect MDS realizat de:
  - Flavia Neacsu
  
  - Robert Manea
